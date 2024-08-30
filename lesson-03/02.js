@@ -10,4 +10,4 @@ function isEven(number) {
     }
 }
 
-console.log(isEven(10));
+
