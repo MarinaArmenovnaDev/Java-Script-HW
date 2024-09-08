@@ -13,7 +13,7 @@
 */
 
 function doubleEachCharacter(str) {
-    let stroka = " "
+    let stroka = ''
     for (let i = 0; i < str.length; i++) {
         stroka = stroka + str[i] + str[i] 
         
