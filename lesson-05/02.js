@@ -37,10 +37,10 @@ const gallery = {
 
 function updateGallery( gallery, name, amount) {
   if(name in gallery){
-    gallery.name = amount
+    gallery[name] = amount
     
   } else{
-    gallery.name = amount
+    gallery[name] = amount
   }
   return gallery
 }
