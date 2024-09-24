@@ -12,46 +12,35 @@
 🧙‍♂️ Совет: обратите внимание на управление индексом текущего изображения — это ключ к успешному переключению изображений.
 */
 
-
-
-// <img id="myImage" src="image1.jpg" alt="Изображение 1">
-// <button id="changeImage">Изменить изображение</button>
-// JavaScript
-// Затем добавьте код JavaScript для обработки события нажатия кнопки:
-
-// const image = document.getElementById('myImage');
-// const button = document.getElementById('changeImage');
-// const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
-// let currentImageIndex = 0;
-
-// button.addEventListener('click', function() {
-//   // Изменить источник изображения при нажатии кнопки
-//   currentImageIndex = (currentImageIndex + 1) % images.length;
-//   image.src = images[currentImageIndex];
-// });
-
-const img = document.getElementById("web-tech-image")
-const buttonPre = document.getElementById("prev-button")
-const buttonNex = document.getElementById("next-button")
+const img = document.getElementById("web-tech-image") // находим картинку по айди
+const buttonPre = document.getElementById("prev-button")//находим кнопку "предыдущее" по айди
+const buttonNex = document.getElementById("next-button")// находим кнобку "следующее" по айди
 const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/32f74d50-68d0-46aa-b035-7b3a5300d2c1_js-magic-logo.jpg',
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/c8a1f4a6-1337-4899-bdfd-a8c9c7bb806a_css-magic-logo.jpg',
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
-let letIndex = 0
+let letIndex = 0 // индекс изображения с которого будет отсчет, имя другое, тк управляться будет кнопкой
 
 function changeImage (index) {
-  img.src = WEB_TECH_IMAGES[index]
+  img.src = WEB_TECH_IMAGES[index] // устанавливаем для img начальную ссылку src 
 }
 
 changeImage(letIndex)
 
 buttonNex.addEventListener('click', function(){
-  letIndex = (letIndex + 1) % WEB_TECH_IMAGES.length
-  changeImage (letIndex) 
+  letIndex = letIndex + 1 //увеличиваем каждый раз значение индекса на 1
+  if (letIndex >= WEB_TECH_IMAGES.length){ // если индекс больше или равен длине массива - возвращаем его в начало
+    letIndex = 0
+  }
+  img.src = WEB_TECH_IMAGES[letIndex] // присваеваем ссылку с меняющимся индексом при  нажатии кнопки
 })
 
 buttonPre.addEventListener('click', function(){
-  letIndex = (letIndex - 1 + WEB_TECH_IMAGES.length) % WEB_TECH_IMAGES.length;
-  changeImage (letIndex) 
+  letIndex = letIndex - 1 // каждый раз уменьшаем индекс на 1
+  if(letIndex < 0 ){ //если индекс меньше 0 - возвращаем ему последний элемент массива
+    letIndex =  WEB_TECH_IMAGES.length-1
+  }
+  img.src = WEB_TECH_IMAGES[letIndex] // присваеваем ссылку с меняющимся индексом при  нажатии кнопки
 })
+
