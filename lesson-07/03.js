@@ -13,7 +13,7 @@ function truncate(str, maxLength) {
  for (let i = 0; i < str.length; i++) {
   if(str.length > maxLength){
    return str.substring(0, maxLength) + "..."
-  }else{
+  }else if (str.length <= maxLength || str === "" ) {
   return str
   }
   
@@ -21,4 +21,4 @@ function truncate(str, maxLength) {
 
 }
 
-console.log(truncate("Короткая строка", 20));
+console.log(truncate("", 0));
