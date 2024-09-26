@@ -13,12 +13,11 @@ function truncate(str, maxLength) {
  for (let i = 0; i < str.length; i++) {
   if(str.length > maxLength){
    return str.substring(0, maxLength) + "..."
-  }else if (str.length <= maxLength || str === "" ) {
+  }else {
   return str
   }
-  
  }
-
+return str
 }
 
-console.log(truncate("", 0));
+console.log(truncate("", 20));
