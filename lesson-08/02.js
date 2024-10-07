@@ -32,12 +32,50 @@ const countdownDisplay = document.getElementById('countdown')
 let isTimerStarted = false
 let timerId
 
+
+// Начать обратный отсчет с 3 до 1.
+
+// Каждую секунду уменьшать значение счетчика на 1.
+
+// Когда счетчик достигнет 0, отобразить эмодзи ракеты "🚀" и остановить таймер.
+
 startButton.addEventListener('click', () => {
   let counter = 3
 
   // your code
+   // Если таймер уже запущен, ничего не делаем
+if (isTimerStarted) return;
+
+isTimerStarted = true;
+
+   // Отображаем начальное значение счетчика
+countdownDisplay.textContent = counter;
+
+//Таймер
+timerId = setInterval(()=> {
+  counter --
+  if (counter > 0) {
+    countdownDisplay.textContent = counter;
+  }else{
+    countdownDisplay.textContent = "🚀"
+    clearInterval(timerId)
+    isTimerStarted = false
+  }
+}, 1000)
 })
+
+
+//Остановить таймер, если он работает.
+
+// Отобразить сообщение "Отменено" в элементе countdownDisplay.
+
 
 cancelButton.addEventListener('click', () => {
   // your code
+  if(!isTimerStarted) return
+
+  clearInterval(timerId)
+  isTimerStarted = false;
+  countdownDisplay.textContent = "Отменено"
 })
+
