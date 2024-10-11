@@ -65,9 +65,9 @@ timerId = setInterval(()=> {
 })
 
 
-//Остановить таймер, если он работает.
+//Остановить таймер если он работает.
 
-// Отобразить сообщение "Отменено" в элементе countdownDisplay.
+// Отобразить  "Отменено" в элементе countdownDisplay.
 
 
 cancelButton.addEventListener('click', () => {

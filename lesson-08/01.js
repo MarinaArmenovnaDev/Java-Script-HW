@@ -75,7 +75,6 @@ petShop.addEventListener('click', function(event) {
   if (event.target.classList.contains('pet')) {
     // Получаем id питомца из атрибута id кнопки
     const petId = event.target.id;
-
     // Проверяем, не превышен ли лимит питомцев в корзине
     if (cart.length < 3) {
       // Добавляем id питомца в массив cart
